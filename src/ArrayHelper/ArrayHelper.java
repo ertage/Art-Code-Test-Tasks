@@ -121,16 +121,16 @@ public class ArrayHelper {
             averageFirstPart = sumFirstPart/halfCounter;
             averageSecondPart = sumSecondPart/halfCounter;
 
-            maxAverageElements = new int[indexOfHalf];
+            maxAverageElements = new int[indexOfHalf+1];
 
             if(averageFirstPart > averageSecondPart){
-                for(int i=0; i<=indexOfHalf; i++){
-                    maxAverageElements[i] = array[i];
+                for(int i=0, j=0; i<=indexOfHalf; i++, j++){
+                    maxAverageElements[j] = array[i];
                 }
             }
            else{
-                for(int i=indexOfHalf+1; i<array.length; i++){
-                    maxAverageElements[i] = array[i];
+                for(int i=indexOfHalf+1, j=0; i<array.length; i++, j++){
+                    maxAverageElements[j] = array[i];
                 }
             }
         }
