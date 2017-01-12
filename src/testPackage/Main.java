@@ -75,6 +75,28 @@ public class Main {
         makeMiddle(makeMiddleArray3);
         System.out.println();
 
+        //test midThree
+        int[]  midThreeArray1 = {1,2,3,4,5};
+        int[]  midThreeArray2 = {8, 6, 7, 5, 3, 0, 9};
+        int[]  midThreeArray3 = {1,2,3};
+
+        System.out.println("test midThree");
+        midThree(midThreeArray1);
+        midThree(midThreeArray2);
+        midThree(midThreeArray3);
+        System.out.println();
+
+        //test unlucky1
+        int[]  unlucky1Array1 = {1, 3, 4, 5};
+        int[]  unlucky1Array2 = {2, 1, 3, 4, 5};
+        int[]  unlucky1Array3 = {1,1,1};
+
+        System.out.println("test unlucky1");
+        unlucky1(unlucky1Array1);
+        unlucky1(unlucky1Array2);
+        unlucky1(unlucky1Array3);
+        System.out.println();
+
     }
 
     public static boolean firstLast6(int[] nums) {
@@ -158,6 +180,45 @@ public class Main {
         }
         System.out.println(Arrays.toString(middleArray));
         return middleArray;
+    }
+
+    public static int[] midThree(int[] nums) {
+        int[] midThreeArray = {};
+        if(nums.length == 3 ){
+            for(int i=0; i<nums.length; i++){
+                midThreeArray = new int[3];
+                midThreeArray[i] = nums[i];
+            }
+        }
+        if (nums.length > 2){
+            if(nums.length%2 == 0 ){
+                midThreeArray = new int[2];
+                midThreeArray[0] = nums[nums.length/2 -1];
+                midThreeArray[1]= nums[nums.length/2 ];
+            } else{
+                midThreeArray = new int[3];
+                midThreeArray[0] = nums[(int) Math.floor(nums.length/2)-1];
+                midThreeArray[1] = nums[(int) Math.floor(nums.length/2)];
+                midThreeArray[2] = nums[(int) Math.floor(nums.length/2)+1];
+            }
+
+        }
+        System.out.println(Arrays.toString(midThreeArray));
+        return midThreeArray;
+    }
+
+    public static boolean unlucky1(int[] nums) {
+        boolean result = false;
+        if(nums.length ==1 ||nums.length ==0){
+            return result;
+        }
+        for(int i=0; i<nums.length; i++){
+            if(((nums[0]==1) && (nums[1]==3)) || ((nums[1]==1) && (nums[2]==3)) || (nums[nums.length-2] == 1 && nums[nums.length-1] == 3)){
+                result = true;
+            }
+        }
+        System.out.println(result);
+        return result;
     }
 
 }
