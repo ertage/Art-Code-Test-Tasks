@@ -9,21 +9,25 @@ import java.util.Random;
 public class ArrayHelper {
     public static  void main(String args []){
         int arraySize = 5;
-        //changeIndexMinMaxValue(createArray(arraySize));
-       // copyArray(createArray(arraySize),createArray(arraySize));
-       // countArrayElements(createArray(arraySize));
-       // averageOfArray(createArray(arraySize));
-        int[] a = {1,2,3, 4,1,5};
-        maxAverageHalfOfArray(a);
+        int evenArraySize = 6;
+        changeIndexMinMaxValue(createArray(arraySize));
+        copyArray(createArray(arraySize),createArray(arraySize));
+        countArrayElements(createArray(arraySize));
+        averageOfArray(createArray(arraySize));
+        maxAverageHalfOfArray(createArray(evenArraySize));
+        sumOfArrays(createArray(arraySize),createArray(arraySize));
+        splitArray(createArray(evenArraySize),2,4);
     }
 
     public static int[] createArray(int size){
         int[] array = new int[size];
+        int minValue = 25;
+        int maxValue = 75;
         Random random = new Random();
         for(int i=0; i<size; i++){
-            array[i] = random.nextInt(100);
+            array[i] = random.nextInt((maxValue-minValue)+1)+minValue;
         }
-        System.out.println(Arrays.toString(array));
+        System.out.println("input array = " + Arrays.toString(array));
         return array;
     }
 
@@ -65,7 +69,7 @@ public class ArrayHelper {
         for(int i=a.length, j=0; i<newArray.length; i++, j++){
             newArray[i] =  b[j];
         }
-        System.out.println(Arrays.toString(newArray));
+        System.out.println("Copy array " + Arrays.toString(newArray));
         System.out.println();
         return newArray;
     }
@@ -135,7 +139,37 @@ public class ArrayHelper {
             }
         }
 
-        System.out.println(Arrays.toString(maxAverageElements));
+        System.out.println("Elements that have the max everage " +Arrays.toString(maxAverageElements));
+        System.out.println();
         return maxAverageElements;
+    }
+
+    public static int[] sumOfArrays(int[] array1, int[] array2){
+        int[] sumArray = new int[array1.length];
+        if(array1.length == array2.length){
+            for(int i=0, j=0; i<array1.length; i++,j++){
+               sumArray[i] = array1[i]+array2[j];
+            }
+        } else {
+            System.out.println("Arrays should have the same length");
+        }
+        System.out.println("sum of Arrays = " + Arrays.toString(sumArray));
+        System.out.println();
+        return sumArray;
+    }
+
+    public static int[] splitArray(int[] array, int startIndex, int endIndex){
+
+        if(endIndex > array.length-1){
+            System.out.println("End index not correct. Try again");
+        }
+        int[] splitArray = new int[array.length - startIndex - (array.length-1-endIndex)];
+        for(int i=startIndex, j=0; i<endIndex+1; i++,j++){
+            splitArray[j] = array[i];
+        }
+        System.out.println("start index = " + startIndex);
+        System.out.println("end index = " + endIndex);
+        System.out.println("splir array = " + Arrays.toString(splitArray));
+        return splitArray;
     }
 }
