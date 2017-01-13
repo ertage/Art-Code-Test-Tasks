@@ -13,6 +13,7 @@ public class Array2 {
         testFizzArray();
         testNo14();
         testMatchUp();
+        testModThree();
     }
 
     public static int countEvens(int[] nums) {
@@ -152,5 +153,27 @@ public class Array2 {
         matchUp(array1, array3);
         matchUp(array1, array4);
     }
+
+    public static boolean modThree(int[] nums) {
+        boolean result = false;
+        for(int i=0; i<nums.length-2; i++){
+            if(((nums[i]%2 == 0)&&(nums[i+1]%2== 0)&&(nums[i+2]%2 == 0))||
+                    ((nums[i]%2 != 0)&&(nums[i+1]%2 != 0)&&(nums[i+2]%2 != 0)))
+                result=true;
+        }
+        System.out.println(result);
+        return result;
+    }
+
+    public static void testModThree() {
+        int[] array1 = {2, 1, 3, 5};    //true
+        int[] array2 = {2, 1, 2, 5}; //false
+        int[] array3 = {2, 4, 2, 5}; //true
+
+        modThree(array1);
+        modThree(array2);
+        modThree(array3);
+    }
+
 }
 
