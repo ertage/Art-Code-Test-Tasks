@@ -14,6 +14,7 @@ public class Array2 {
         testNo14();
         testMatchUp();
         testModThree();
+        testShiftLeft();
     }
 
     public static int countEvens(int[] nums) {
@@ -175,5 +176,25 @@ public class Array2 {
         modThree(array3);
     }
 
+    public static int[] shiftLeft(int[] nums){
+        if(nums.length>0){
+            int first = nums[0];
+            for (int i = 0; i < nums.length - 1; i++) {
+                nums[i] = nums[i + 1];
+            }
+            nums[nums.length - 1] = first;
+        }
+        System.out.println("new array = " + Arrays.toString(nums));
+        return nums;
+    }
+    public static void testShiftLeft(){
+        int[] array1 = {6, 2, 5, 3};
+        int[] array2 = {1, 2};
+        int[] array3 = {1};
+
+        shiftLeft(array1);
+        shiftLeft(array2);
+        shiftLeft(array3);
+    }
 }
 
