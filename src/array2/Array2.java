@@ -196,5 +196,7 @@ public class Array2 {
         shiftLeft(array2);
         shiftLeft(array3);
     }
+
+
 }
 
